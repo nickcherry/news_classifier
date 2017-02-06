@@ -26,11 +26,19 @@ bundle install
 To crawl news sources and save their content to the `articles` collection of the `news_classifier` database, run the following from the project root:
 
 ```shell
-ruby exe/crawl
+ruby exe/crawl.rb
 ```
 
 To drop the `articles` collection before crawling, run add the `--drop-collection` option:
 
 ```shell
-ruby exe/crawl --drop-collection
+ruby exe/crawl.rb --drop-collection
+```
+
+## Classifying News Sources
+
+Once the news sources have been crawled, run the following command to launch the interactive classifier:
+
+```shell
+ruby exe/classify.rb
 ```

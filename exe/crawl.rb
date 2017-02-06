@@ -2,7 +2,6 @@ require "#{ File.expand_path(File.dirname(__FILE__)) }/../models/article.rb"
 require 'colorize'
 require 'optparse'
 require 'ostruct'
-require 'pry'
 require 'spidr'
 
 MAX_ARTICLES_PER_SOURCE = 500
