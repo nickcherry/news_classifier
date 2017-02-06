@@ -5,17 +5,16 @@ require 'pry'
 
 puts "\nOne moment while we train the classifier".cyan
 
-sources = Article.distinct(:source)
-classifier = ClassifierReborn::Bayes.new(*sources)
+lsi = ClassifierReborn::LSI.new
 total_articles = Article.count
 Article.all.each_with_index do |article, i|
   puts "...classifying article #{ i + 1 } of #{ total_articles }".cyan
-  classifier.train article.source, article.text
+  lsi.add_item article.text, article.source
 end
 
 loop do
-  puts "\nEnter the text you'd like to classify (or type `exit!` to quit the program):".yellow
+  puts "\nEnter the text for which you want to find similar articles (or type `exit!` to quit the program):".yellow
   input = gets.chomp
   break if input == 'exit!'
-  puts "#{ classifier.classify(input) }".green
+  puts "#{ lsi.find_related(input, 1).first }".green
 end

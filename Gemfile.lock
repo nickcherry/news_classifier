@@ -15,6 +15,7 @@ GEM
     colorize (0.8.1)
     concurrent-ruby (1.0.4)
     fast-stemmer (1.0.2)
+    gsl (2.1.0.2)
     i18n (0.8.0)
     method_source (0.8.2)
     mini_portile2 (2.1.0)
@@ -43,6 +44,7 @@ PLATFORMS
 DEPENDENCIES
   classifier-reborn (~> 2.1.0)
   colorize (~> 0.8.1)
+  gsl (~> 2.1.0)
   mongoid (~> 6.1.0)
   pry
   spidr (~> 0.6.0)

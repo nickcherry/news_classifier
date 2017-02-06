@@ -6,7 +6,7 @@ After installing [Homebrew](http://brew.sh/), download and install [Mongo](https
 
 ```shell
 brew install mongodb
-brew install gsl
+brew install gsl # improves classification performance
 ```
 
 Ensure that Mongo is running with:
@@ -35,9 +35,17 @@ To drop the `articles` collection before crawling, add the `--drop-collection` o
 ruby exe/crawl.rb --drop-collection
 ```
 
-## Classifying News Sources
+## Classifying Content
 
 Once the news sources have been crawled, run the following command to launch the interactive classifier:
+
+```shell
+ruby exe/classify.rb
+```
+
+## Finding Related Content
+
+Once the news sources have been crawled, run the following command to find content related to the provided string:
 
 ```shell
 ruby exe/classify.rb

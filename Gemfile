@@ -10,6 +10,7 @@ end
 
 gem 'classifier-reborn', '~> 2.1.0'
 gem 'colorize', '~> 0.8.1'
+gem 'gsl', '~> 2.1.0'
 gem 'mongoid', '~> 6.1.0'
 gem 'pry'
 gem 'spidr', '~> 0.6.0'
