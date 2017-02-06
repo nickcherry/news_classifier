@@ -23,9 +23,9 @@ sources = [
     starting_url: 'http://www.foxnews.com/politics.html',
     ignore_urls_like: ->(url) { !url.path.include?('/politics') },
     ignore_pages_like: ->(page) {
-      page.url.path.include?('/category')
+      !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
     },
-    content_xpath: '//article | //*[@id="content"]',
+    content_xpath: '//article/h1 | //*[contains(@class, "article-body")]',
   ),
   OpenStruct.new(
     name: :cnn,
