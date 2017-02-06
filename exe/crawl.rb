@@ -4,7 +4,7 @@ require 'optparse'
 require 'ostruct'
 require 'spidr'
 
-MAX_ARTICLES_PER_SOURCE = 500
+MAX_ARTICLES_PER_SOURCE = 1000
 
 options = OpenStruct.new
 options.drop_collection = false
