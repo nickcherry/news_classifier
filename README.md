@@ -23,7 +23,7 @@ bundle install
 
 ## Crawling News Sources
 
-To crawl news sources, run the following from the project root:
+To crawl news sources and save their content to the `articles` collection of the `news_classifier` database, run the following from the project root:
 
 ```shell
 ruby exe/crawl
