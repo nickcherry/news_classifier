@@ -58,7 +58,7 @@ sources = [
     name: :huffpost,
     starting_url: 'http://www.huffingtonpost.com/section/politics',
     ignore_urls_like: ->(url) { !url.to_s.include?('politics') },
-    content_xpath: '//article | //*[contains(@class, "l-main-content")]',
+    content_xpath: '//*[contains(@class, "headline__title")] | //*[contains(@class, "headline__subtitle")] | //*[contains(@class, "content-list-component")]/p',
   ),
   OpenStruct.new(
     name: :wsj,
