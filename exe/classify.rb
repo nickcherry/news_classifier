@@ -3,13 +3,13 @@ require 'classifier-reborn'
 require 'colorize'
 require 'pry'
 
-sources = Article.distinct(:category)
+sources = Article.distinct(:source)
 
 puts "\nOne moment, training the classifier...".cyan
 
 classifier = ClassifierReborn::Bayes.new(*sources)
 Article.all.each do |article|
-  classifier.train article.category, article.text
+  classifier.train article.source, article.text
 end
 
 loop do

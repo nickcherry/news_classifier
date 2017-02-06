@@ -7,11 +7,11 @@ class Article
   include Mongoid::Document
 
 # Fields
-  field :category, type: String
+  field :source, type: String
   field :text, type: String
   field :url, type: String
 
 # Indices
-  index({ category: 1 })
+  index({ source: 1 })
   index({ url: 1 }, { unique: true })
 end

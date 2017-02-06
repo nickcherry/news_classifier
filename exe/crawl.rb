@@ -135,7 +135,7 @@ sources.each do |source|
       if should_process_page?(page, source, page_count)
         if text = extract_content(page, source.content_xpath).presence
           begin
-            Article.create(category: source.name, text: text, url: page.url)
+            Article.create(source: source.name, text: text, url: page.url)
             page_count += 1
             puts "Successfully saved article at #{ page.url } (#{ page_count } of #{ MAX_ARTICLES_PER_SOURCE })".green
           rescue => e
