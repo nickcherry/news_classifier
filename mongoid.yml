@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      database: news_classifier
+      hosts:
+        - localhost:27017

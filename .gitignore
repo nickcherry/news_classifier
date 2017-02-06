@@ -1,0 +1,16 @@
+# Mac finder artifacts
+.DS_Store
+
+# Sublime project files
+**.sublime-project
+**.sublime-workspace
+
+# vim artifacts
+**.swp
+**.swo
+**.swn
+**.swm
+
+# some artifacts
+*~
+*.0
