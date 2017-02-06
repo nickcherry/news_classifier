@@ -28,3 +28,9 @@ To crawl news sources, run the following from the project root:
 ```shell
 ruby exe/crawl
 ```
+
+To drop the `articles` collection before crawling, run add the `--drop-collection` option:
+
+```shell
+ruby exe/crawl --drop-collection
+```

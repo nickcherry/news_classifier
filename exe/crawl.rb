@@ -1,14 +1,24 @@
 require "#{ File.expand_path(File.dirname(__FILE__)) }/../models/article.rb"
 require 'colorize'
+require 'optparse'
 require 'ostruct'
 require 'pry'
 require 'spidr'
 
-
 MAX_ARTICLES_PER_SOURCE = 500
 
-Article.delete_all
+options = OpenStruct.new
+options.drop_collection = false
+opt_parser = OptionParser.new do |opts|
+  opts.on('--drop-collection') { options.drop_collection = true }
+end
+opt_parser.parse!
 
+if options.drop_collection
+  Article.delete_all
+end
+
+exit
 sources = [
   OpenStruct.new(
     name: :fox,
