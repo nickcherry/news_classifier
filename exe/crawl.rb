@@ -22,6 +22,9 @@ sources = [
     name: :fox,
     starting_url: 'http://www.foxnews.com/politics.html',
     ignore_urls_like: ->(url) { !url.path.include?('/politics') },
+    ignore_pages_like: ->(page) {
+      page.url.include?('/category')
+    },
     content_xpath: '//article | //*[@id="content"]',
   ),
   OpenStruct.new(
