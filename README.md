@@ -48,5 +48,5 @@ ruby exe/classify.rb
 Once the news sources have been crawled, run the following command to find content related to the provided string:
 
 ```shell
-ruby exe/classify.rb
+ruby exe/find_related.rb
 ```
