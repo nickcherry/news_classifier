@@ -32,7 +32,7 @@ sources = [
     starting_url: 'http://www.cnn.com/politics',
     ignore_urls_like: ->(url) { !url.path.include?('/politics') },
     ignore_pages_like: ->(page) {
-      !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
+      !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/) || page.url.path =~ /\/videos\//
     },
     content_xpath: '//article/h1 | //*[contains(@class, "zn-body__paragraph")]',
   ),
