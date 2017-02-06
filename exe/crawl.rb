@@ -121,7 +121,7 @@ end
 def extract_content(page, xpath)
   page.search(xpath)
     .map(&:text)
-    .join
+    .join(' ')
     .tr("\t", ' ')
     .tr("\n", ' ')
     .tr("\r", ' ')
