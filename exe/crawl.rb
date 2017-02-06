@@ -17,7 +17,6 @@ if options.drop_collection
   Article.delete_all
 end
 
-exit
 sources = [
   OpenStruct.new(
     name: :fox,
