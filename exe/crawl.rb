@@ -18,15 +18,15 @@ if options.drop_collection
 end
 
 sources = [
-  # OpenStruct.new(
-  #   name: :fox,
-  #   starting_url: 'http://www.foxnews.com/politics.html',
-  #   ignore_urls_like: ->(url) { !url.path.include?('/politics') },
-  #   ignore_pages_like: ->(page) {
-  #     !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
-  #   },
-  #   content_xpath: '//article/h1 | //*[contains(@class, "article-body")]',
-  # ),
+  OpenStruct.new(
+    name: :fox,
+    starting_url: 'http://www.foxnews.com/politics.html',
+    ignore_urls_like: ->(url) { !url.path.include?('/politics') },
+    ignore_pages_like: ->(page) {
+      !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
+    },
+    content_xpath: '//article/h1 | //*[contains(@class, "article-body")]',
+  ),
   OpenStruct.new(
     name: :cnn,
     starting_url: 'http://www.cnn.com/politics',
@@ -40,6 +40,9 @@ sources = [
     name: :breitbart,
     starting_url: 'http://www.breitbart.com/big-government/',
     ignore_urls_like: ->(url) { !url.path.include?('/big-government') },
+    ignore_page_urls_like: ->(page) {
+      !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
+    },
     content_xpath: '//article',
   ),
   OpenStruct.new(
