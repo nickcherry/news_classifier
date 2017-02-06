@@ -95,7 +95,10 @@ sources = [
     name: :townhall,
     starting_url: 'http://townhall.com/watchdog/',
     ignore_urls_like: ->(url) { !url.path.include?('/watchdog') },
-    content_xpath: '//article',
+    ignore_pages_like: ->(page) {
+      !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
+    },
+    content_xpath: '//article//h1 | //*[@id="article-body"]//p',
   ),
   OpenStruct.new(
     name: :aljazeera,
