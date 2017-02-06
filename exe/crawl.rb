@@ -89,7 +89,7 @@ sources = [
     ignore_pages_like: ->(page) {
       !page.search('//*[contains(@class, "article-section")]').try(:text).try(:include?, 'Politics')
     },
-    content_xpath: '//*[@id="rcs-articleContent"]',
+    content_xpath: '//*[contains(@class, "article-header")]//h1 | //*[@id="article-text"]//p',
   ),
   OpenStruct.new(
     name: :townhall,
