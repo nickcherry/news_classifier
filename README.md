@@ -14,3 +14,11 @@ After installing [Ruby](https://www.ruby-lang.org/en/) and [Bundler](http://bund
 ```shell
 bundle install
 ```
+
+## Crawling News Sources
+
+To crawl news sources, run the following from the project root:
+
+```shell
+ruby exe/crawl
+```
