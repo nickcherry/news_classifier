@@ -131,6 +131,8 @@ def extract_content(page, xpath)
     .squeeze(' ')
 end
 
+start_time = Time.now
+
 sources.each do |source|
   Spidr.site(source.starting_url) do |agent|
     page_count = 0
@@ -162,3 +164,8 @@ sources.each do |source|
     end
   end
 end
+
+end_time = Time.now
+
+duration_in_mins = ((end_time - start_time) / 60).round(1)
+puts "\n#{ Article.count } articles retrieved in #{ duration_in_mins } minutes".green
