@@ -29,7 +29,7 @@ To crawl news sources and save their content to the `articles` collection of the
 ruby exe/crawl.rb
 ```
 
-To drop the `articles` collection before crawling, run add the `--drop-collection` option:
+To drop the `articles` collection before crawling, add the `--drop-collection` option:
 
 ```shell
 ruby exe/crawl.rb --drop-collection
