@@ -52,36 +52,33 @@ sources = [
     ignore_page_urls_like: ->(page) {
       !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
     },
-    content_xpath: '//*[contains(@class, "c-page-title")] | //*[contains(@class, "c-entry-summary")] | //*[contains(@class, "c-entry-content")]/p',
+    content_xpath: '//*[contains(@class, "c-page-title")] | //*[contains(@class, "c-entry-summary")] | //*[contains(@class, "c-entry-content")]//p',
   ),
   OpenStruct.new(
     name: :huffpost,
     starting_url: 'http://www.huffingtonpost.com/section/politics',
     ignore_urls_like: ->(url) { !url.to_s.include?('politics') },
-    content_xpath: '//*[contains(@class, "headline__title")] | //*[contains(@class, "headline__subtitle")] | //*[contains(@class, "content-list-component")]/p',
+    content_xpath: '//*[contains(@class, "headline__title")] | //*[contains(@class, "headline__subtitle")] | //*[contains(@class, "content-list-component")]//p',
   ),
-  # OpenStruct.new(
-  #   name: :wsj,
-  #   starting_url: 'http://blogs.wsj.com/washwire/',
-  #   ignore_urls_like: ->(url) { !url.path.include?('washwire') },
-  #   ignore_page_urls_like: ->(page) {
-  #     !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
-  #   },
-  #   content_xpath: '//article',
-  # ),
   OpenStruct.new(
     name: :wp,
     starting_url: 'https://www.washingtonpost.com/politics/',
     ignore_urls_like: ->(url) {
       !url.path.include?('/politics') || url.path.include?('_video.html')
     },
-    content_xpath: '//*[@id="main-content"]',
+    ignore_pages_like: ->(page) {
+      !(page.url.to_s =~ /politics\/.+/)
+    },
+    content_xpath: '//*[@id="top-content"]//h1 | //*[@id="article-body"]//p',
   ),
   OpenStruct.new(
     name: :bloomberg,
     starting_url: 'https://www.bloomberg.com/politics',
     ignore_urls_like: ->(url) { !url.path.include? '/politics' },
-    content_xpath: '//article',
+    ignore_pages_like: ->(page) {
+      !(page.url.path =~ /articles\/\d{4}\-\d{2}\-\d{2}/)
+    },
+    content_xpath: '//article//h1 | //article//h2 | //*[contains(@class, "body-copy")]//p',
   ),
   OpenStruct.new(
     name: :reuters,
