@@ -60,12 +60,15 @@ sources = [
     ignore_urls_like: ->(url) { !url.to_s.include?('politics') },
     content_xpath: '//*[contains(@class, "headline__title")] | //*[contains(@class, "headline__subtitle")] | //*[contains(@class, "content-list-component")]/p',
   ),
-  OpenStruct.new(
-    name: :wsj,
-    starting_url: 'http://blogs.wsj.com/washwire/',
-    ignore_urls_like: ->(url) { !url.path.include?('washwire') },
-    content_xpath: '//article',
-  ),
+  # OpenStruct.new(
+  #   name: :wsj,
+  #   starting_url: 'http://blogs.wsj.com/washwire/',
+  #   ignore_urls_like: ->(url) { !url.path.include?('washwire') },
+  #   ignore_page_urls_like: ->(page) {
+  #     !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
+  #   },
+  #   content_xpath: '//article',
+  # ),
   OpenStruct.new(
     name: :wp,
     starting_url: 'https://www.washingtonpost.com/politics/',
