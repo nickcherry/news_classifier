@@ -109,9 +109,9 @@ sources = [
       }
     },
     ignore_pages_like: ->(page) {
-      !page.search('//*[contains(@class, "FirstTopic")]').try(:text).try(:include?, 'United States')
+      !(page.url.path =~ /\d{4}\/\d{2}/) || !page.search('//*[contains(@class, "FirstTopic")]').try(:text).try(:include?, 'United States')
     },
-    content_xpath: '//*[@id="main-content"]',
+    content_xpath: '//*[@id="main-content"]//h1 | //*[@id="main-content"]//h2 | //*[@id="article-body"]//p',
   ),
 ]
 
