@@ -49,7 +49,10 @@ sources = [
     name: :vox,
     starting_url: 'http://www.vox.com/policy-and-politics',
     ignore_urls_like: ->(url) { !url.path.include?('/policy-and-politics') },
-    content_xpath: '//article | //*[contains(@class, "l-main-content")]',
+    ignore_page_urls_like: ->(page) {
+      !(page.url.path =~ /\d{4}\/\d{2}\/\d{2}/)
+    },
+    content_xpath: '//*[contains(@class, "c-page-title")] | //*[contains(@class, "c-entry-summary")] | //*[contains(@class, "c-entry-content")]/p',
   ),
   OpenStruct.new(
     name: :huffpost,
