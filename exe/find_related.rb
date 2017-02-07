@@ -1,7 +1,6 @@
 require "#{ File.expand_path(File.dirname(__FILE__)) }/../models/article.rb"
 require 'classifier-reborn'
 require 'colorize'
-require 'pry'
 
 puts "\nOne moment while we train the classifier".cyan
 
