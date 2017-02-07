@@ -26,13 +26,13 @@ bundle install
 To crawl news sources and save their content to the `articles` collection of the `news_classifier` database, run the following from the project root:
 
 ```shell
-ruby exe/crawl.rb
+ruby scripts/crawl.rb
 ```
 
 To drop the `articles` collection before crawling, add the `--drop-collection` option:
 
 ```shell
-ruby exe/crawl.rb --drop-collection
+ruby scripts/crawl.rb --drop-collection
 ```
 
 ## Classifying Content
@@ -40,7 +40,7 @@ ruby exe/crawl.rb --drop-collection
 Once the news sources have been crawled, run the following command to launch the interactive classifier:
 
 ```shell
-ruby exe/classify.rb
+ruby scripts/classify.rb
 ```
 
 ## Finding Related Content
@@ -48,5 +48,5 @@ ruby exe/classify.rb
 Once the news sources have been crawled, run the following command to find content related to the provided string:
 
 ```shell
-ruby exe/find_related.rb
+ruby scripts/find_related.rb
 ```
