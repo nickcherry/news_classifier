@@ -1,0 +1,28 @@
+{
+  "name": "news_classifier",
+  "version": "1.0.0",
+  "description": "Simple machine learning and analysis applied to news",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickcherry/news_classifier.git"
+  },
+  "keywords": [
+    "news",
+    "classifier",
+    "machine",
+    "learning"
+  ],
+  "author": "Nick Cherry <nickcherryjiggz@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickcherry/news_classifier/issues"
+  },
+  "homepage": "https://github.com/nickcherry/news_classifier#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-register": "^6.22.0",
+    "colors": "^1.1.2",
+    "mongodb": "^2.2.22",
+    "sentiment": "^2.1.0"
+  }
+}
